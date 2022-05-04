@@ -1,40 +1,50 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 .App {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  width: 520px;
+  min-height: 600px;
+  background: #161a2b;
   text-align: center;
-  border: 1px solid black;
-  width: 480px;
-  position: relative;
-  margin-left: 460px;
-  background-color: rgb(72, 66, 66);
-  border-radius: 25px;
-  align-items: center;
+  margin: 128px auto;
+  border-radius: 10px;
+  padding-bottom: 32px;
 }
 
 img {
-  display: flex inline-block;
-  height: 100px;
+  height: 85px;
+  width: 65px;
   position: relative;
-  left: 10px;
+  left: 225px;
   top: 80px;
   border-radius: 5px;
 }
-main {
-  background-color: black;
-  border: 1px solid black;
-  overflow-x: hidden;
-  min-height: 100%;
-  min-width: 100%;
-  padding-top: 50px;
+
+body {
+  background: linear-gradient(
+    90deg,
+    rgba(48, 16, 255, 1) 0%,
+    rgba(100, 115, 255, 1) 100%
+  );
 }
 
 ul {
   list-style: none;
   color: rgb(39, 170, 170);
+  text-align: center;
+  align-items: center;
 }
 
 .status {
   display: flex;
   position: relative;
-  left: 150px;
+  right: 65px;
   top: 38px;
 }
 
@@ -42,4 +52,30 @@ h1 {
   position: relative;
   bottom: 100px;
   color: rgb(39, 170, 170);
+}
+
+ul {
+  list-style: none;
+}
+
+.status {
+  position: relative;
+  left: 115px;
+  top: 15px;
+}
+
+.addbutton {
+  width: 50px;
+  padding: 5px;
+  position: relative;
+  left: 330px;
+  bottom: 60px;
+  cursor: pointer;
+}
+
+.inputvalue {
+  width: 150px;
+  height: 28px;
+  position: relative;
+  left: 180px;
 }
