@@ -37,15 +37,7 @@ body {
 ul {
   list-style: none;
   color: rgb(39, 170, 170);
-  text-align: center;
-  align-items: center;
-}
-
-.status {
-  display: flex;
   position: relative;
-  right: 65px;
-  top: 38px;
 }
 
 h1 {
@@ -54,13 +46,10 @@ h1 {
   color: rgb(39, 170, 170);
 }
 
-ul {
-  list-style: none;
-}
-
 .status {
+  display: flex;
   position: relative;
-  left: 115px;
+  left: 145px;
   top: 15px;
 }
 
@@ -78,4 +67,22 @@ ul {
   height: 28px;
   position: relative;
   left: 180px;
+}
+
+.deletevalue {
+  width: 150px;
+  height: 28px;
+  position: relative;
+  left: 180px;
+  bottom: 50px;
+}
+
+.deletebutton {
+  width: 50px;
+  padding: 5px;
+  position: relative;
+  left: 330px;
+  bottom: 60px;
+  cursor: pointer;
+  bottom: 78px;
 }

@@ -13,6 +13,10 @@ function App() {
     const item = {
       value: newItem,
     };
+
+    if (newItem.length < 3) {
+      return alert("Tarea necesita mas de 3 caracteres");
+    }
     setItem((oldList) => [...oldList, item]);
     setNewItem("");
   }
@@ -39,20 +43,23 @@ function App() {
           <button className="addbutton" onClick={() => addItem()}>
             Add
           </button>
-          <ToDoListComponent task="Learn HTML" />
-          <br></br>
-          <ToDoListComponent task="Learn CSS" />
-          <br></br>
-          <ToDoListComponent task="Learn Javascript" />
-          <br></br>
-          <ToDoListComponent task="Learn React" />
-          <br></br>
-          <ToDoListComponent task="Learn Firebase" />
-          <br></br>
-          <ToDoListComponent task="Learn Salesforce" />
-          <br></br>
-          <ToDoListComponent task="Get a job" />
-          <br></br>
+          <input
+            className="deletevalue"
+            type="text"
+            placeholder="Ingrese ID para borrar"
+            /* value={id}
+            onChange={(e) => d} */
+          />
+          <button className="deletebutton" /* onClick={() => deleteItem()} */>
+            Delete
+          </button>
+          <ToDoListComponent task="Learn HTML" /> <br></br>
+          <ToDoListComponent task="Learn CSS" /> <br></br>
+          <ToDoListComponent task="Learn Javascript" /> <br></br>
+          <ToDoListComponent task="Learn React" /> <br></br>
+          <ToDoListComponent task="Learn Firebase" /> <br></br>
+          <ToDoListComponent task="Learn Salesforce" /> <br></br>
+          <ToDoListComponent task="Get a job" /> <br></br>
           <ul>
             {items.map((item) => {
               return (

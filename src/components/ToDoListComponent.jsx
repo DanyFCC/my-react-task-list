@@ -4,7 +4,7 @@ function ToDoListComponent(props) {
     <div className="status">
       <input type="checkbox" />
       <ul>
-        <li className="list"> To do: {task}</li>
+        <li className="list"> To do: {task} </li>
       </ul>
     </div>
   );
