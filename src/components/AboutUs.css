@@ -1,0 +1,12 @@
+.navbar {
+  position: relative;
+  left: 480px;
+  top: 0px;
+}
+.navcolor {
+  background-color: #b794f4;
+}
+
+.list {
+  list-style: none;
+}

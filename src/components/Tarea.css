@@ -1,0 +1,21 @@
+.delete {
+  position: relative;
+  left: 155px;
+  bottom: 30px;
+}
+
+.checkbox {
+  position: relative;
+  right: 125px;
+  bottom: 20px;
+}
+
+.navbar {
+  position: relative;
+  left: 480px;
+  top: 0px;
+}
+
+.navcolor {
+  background-color: #b794f4;
+}

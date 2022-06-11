@@ -1,77 +1,45 @@
-import React from "react";
-import image from "./components/images/ToDoList.jpg";
 import "./App.css";
-import HeaderComponent from "./components/HeaderComponent";
-import ToDoListComponent from "./components/ToDoListComponent";
-import { useState } from "react";
+import { lazy, Suspense } from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react";
+import SignInComponent from "./components/SignInComponent";
+import { ProfileImage } from "./components/ProfileImage";
+import LoginComponent from "./components/LoginComponent";
+const AboutUsComponent = lazy(() => import("./components/AboutUsComponent"));
+const MenuComponent = lazy(() => import("./components/MenuComponent"));
+const TareaComponent = lazy(() => import("./components/TareaComponent"));
+const HomeComponent = lazy(() => import("./components/HomeComponent"));
 
 function App() {
-  const [newItem, setNewItem] = useState("");
-  const [items, setItem] = useState([]);
-
-  function addItem() {
-    const item = {
-      value: newItem,
-    };
-
-    if (newItem.length < 3) {
-      return alert("Tarea necesita mas de 3 caracteres");
-    }
-    setItem((oldList) => [...oldList, item]);
-    setNewItem("");
-  }
-
   return (
     <>
-      <main>
-        <div className="App">
-          <img src={image} className="ToDoList" alt="image" />
-          <br></br>
-          <br></br>
-          <HeaderComponent />
-          <br />
-          <br />
-          <input
-            className="inputvalue"
-            type="text"
-            placeholder="Add a task"
-            value={newItem}
-            onChange={(e) => setNewItem(e.target.value)}
-          />
-          <br></br>
-          <br></br>
-          <button className="addbutton" onClick={() => addItem()}>
-            Add
-          </button>
-          <input
-            className="deletevalue"
-            type="text"
-            placeholder="Ingrese ID para borrar"
-            /* value={id}
-            onChange={(e) => d} */
-          />
-          <button className="deletebutton" /* onClick={() => deleteItem()} */>
-            Delete
-          </button>
-          <ToDoListComponent task="Learn HTML" /> <br></br>
-          <ToDoListComponent task="Learn CSS" /> <br></br>
-          <ToDoListComponent task="Learn Javascript" /> <br></br>
-          <ToDoListComponent task="Learn React" /> <br></br>
-          <ToDoListComponent task="Learn Firebase" /> <br></br>
-          <ToDoListComponent task="Learn Salesforce" /> <br></br>
-          <ToDoListComponent task="Get a job" /> <br></br>
-          <ul>
-            {items.map((item) => {
-              return (
-                <li key={item.id}>
-                  <ToDoListComponent />
-                  {item.value}
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      </main>
+      <Suspense fallback={<h2>...Loading</h2>}>
+        <Router>
+          <Box h="100vh">
+            <Breadcrumb bg="#b794f4">
+              <BreadcrumbItem>
+                <BreadcrumbLink className="title" href="/home"></BreadcrumbLink>
+              </BreadcrumbItem>
+            </Breadcrumb>
+            <div className="boox">
+              <Button size="sm">
+                <SignInComponent />
+              </Button>
+              <ProfileImage />
+            </div>
+
+            <Routes>
+              <Route path="/menu" element={<MenuComponent />} />
+              <Route path="/home" element={<HomeComponent />} />
+              <Route path="/aboutus" element={<AboutUsComponent />} />
+              <Route path="/tarea" element={<TareaComponent />} />
+            </Routes>
+            <LoginComponent />
+          </Box>
+        </Router>
+      </Suspense>
     </>
   );
 }
